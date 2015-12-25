@@ -4,6 +4,7 @@ import subprocess
 from setuptools import setup
 from distutils.command.build import build
 
+
 class YBinlogPBuild(build):
     def initialize_options(self):
         build.initialize_options(self)
@@ -13,9 +14,10 @@ class YBinlogPBuild(build):
         subprocess.call(['make', 'build'])
         build.run(self)
 
-about = {}
-with open(os.path.join(os.path.dirname(__file__), 'src/ybinlogp/version.py')) as f:
-    exec f.read() in about
+# about = {}
+# with open(os.path.join(os.path.dirname(__file__), 'src/ybinlogp/version.py')) as f:
+#     exec f.read() in about
+# print("TTT", about)
 
 setup(
     author='Yelp',
@@ -28,7 +30,7 @@ setup(
     name='YBinlogP',
     package_dir={'': 'src'},
     packages=['ybinlogp'],
-    scripts=['build/ybinlogp'],
+    # scripts=['build/ybinlogp'],
     url='http://github.com/Yelp/ybinlogp',
-    version=about['__version__']
+    version='0.6'
 )
